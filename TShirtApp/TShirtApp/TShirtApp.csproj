@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\sun.png" />
+    <None Remove="Images\tree.png" />
+    <None Remove="Images\x-tshirt-black.png" />
+    <None Remove="Images\x-tshirt-orange.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\sun.png" />
+    <EmbeddedResource Include="Images\tree.png" />
+    <EmbeddedResource Include="Images\x-tshirt-black.png" />
+    <EmbeddedResource Include="Images\x-tshirt-orange.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
+    <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.362" />
+    <PackageReference Include="XLabs.Forms" Version="2.3.0-pre05" />
+  </ItemGroup>
+
+</Project>

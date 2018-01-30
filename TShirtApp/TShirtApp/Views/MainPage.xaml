@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TShirtApp.Views.MainPage"
+             xmlns:lb="clr-namespace:XLabs.Forms.Behaviors;assembly=XLabs.Forms"
+             xmlns:lc="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:TShirtApp"
+             Title="{Binding Title}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <AbsoluteLayout Grid.Column="0" Padding="20,20">
+            <lc:GesturesContentView>
+                <Frame HeightRequest="700"
+                           HorizontalOptions="Center"
+                           OutlineColor="White"
+                           Padding="10,10">
+                    <StackLayout Orientation="Vertical">
+                        <Image HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding IsBlackVisible}" Source="{local:Images.ImageResource TShirtApp.Images.x-tshirt-black.png}">
+                            <lb:Gestures.Interests>
+                                <lb:GestureCollection>
+                                    <lb:GestureInterest GestureType="Swipe" Direction="Left" GestureCommand="{Binding Left}" />
+                                    <lb:GestureInterest GestureType="Swipe" Direction="Right" GestureCommand="{Binding Right}" />
+                                </lb:GestureCollection>
+                            </lb:Gestures.Interests>
+                        </Image>
+                        <Image HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding IsOrangeVisible}" Source="{local:Images.ImageResource TShirtApp.Images.x-tshirt-orange.png}">
+                            <lb:Gestures.Interests>
+                                <lb:GestureCollection>
+                                    <lb:GestureInterest GestureType="Swipe" Direction="Left" GestureCommand="{Binding Left}" />
+                                    <lb:GestureInterest GestureType="Swipe" Direction="Right" GestureCommand="{Binding Right}" />
+                                </lb:GestureCollection>
+                            </lb:Gestures.Interests>
+                        </Image>
+                    </StackLayout>
+                </Frame>
+            </lc:GesturesContentView>
+            
+            <lc:GesturesContentView>
+                <StackLayout Orientation="Vertical" Margin="{Binding MarginTopLeft}">
+                    <Image IsVisible="{Binding IsSunVisible}" Source="{local:Images.ImageResource TShirtApp.Images.sun.png}" >
+                        <lb:Gestures.Interests>
+                            <lb:GestureCollection>
+                                <lb:GestureInterest GestureType="DoubleTap" GestureCommand="{Binding DoubleTap}" GestureParameter="SUN"/>
+                                <lb:GestureInterest GestureType="Move" GestureCommand="{Binding Movement}" GestureParameter="SUN"/>
+                            </lb:GestureCollection>
+                        </lb:Gestures.Interests>
+                    </Image>
+                    <Image IsVisible="{Binding IsTreeVisible}" Source="{local:Images.ImageResource TShirtApp.Images.tree.png}" >
+                        <lb:Gestures.Interests>
+                            <lb:GestureCollection>
+                                <lb:GestureInterest GestureType="DoubleTap" GestureCommand="{Binding DoubleTap}" GestureParameter="TREE"/>
+                                <lb:GestureInterest GestureType="Move" GestureCommand="{Binding Movement}" GestureParameter="TREE"/>
+                            </lb:GestureCollection>
+                        </lb:Gestures.Interests>
+                    </Image>
+                </StackLayout>
+            </lc:GesturesContentView>
+        </AbsoluteLayout>
+
+
+        <lc:GesturesContentView Grid.Column="1" >
+            <StackLayout Orientation="Vertical">
+                <Image x:Name="myImage" Source="{local:Images.ImageResource TShirtApp.Images.sun.png}" >
+                    <lb:Gestures.Interests>
+                        <lb:GestureCollection>
+                            <lb:GestureInterest GestureType="LongPress" GestureCommand="{Binding LongPress}" GestureParameter="SUN"/>
+                            <lb:GestureInterest GestureType="Move" GestureCommand="{Binding Movement}" GestureParameter="SUN"/>
+                        </lb:GestureCollection>
+                    </lb:Gestures.Interests>
+                </Image>
+                <Image Source="{local:Images.ImageResource TShirtApp.Images.tree.png}" >
+                    <lb:Gestures.Interests>
+                        <lb:GestureCollection>
+                            <lb:GestureInterest GestureType="LongPress" GestureCommand="{Binding LongPress}" GestureParameter="TREE"/>
+                            <lb:GestureInterest GestureType="Move" GestureCommand="{Binding Movement}" GestureParameter="TREE"/>
+                        </lb:GestureCollection>
+                    </lb:Gestures.Interests>
+                </Image>
+            </StackLayout>
+        </lc:GesturesContentView>
+    </Grid>
+
+</ContentPage>
